@@ -10,5 +10,12 @@ const removeDuplicates = (nums) => {
       ans++;
     }
   });
-  return ans;
 };
+
+// const WrongRemoveDuplicates = (nums) =>
+//   nums.filter((val, index) => val !== nums[index + 1]).length;
+
+// const WrongRemoveDuplicates2 = (nums) => {
+//   nums = nums.filter((val, index) => val !== nums[index + 1]).length;
+//   return nums.length;
+// };
