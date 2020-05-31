@@ -5,15 +5,13 @@
 
 //  first correct!
 const containsDuplicate = (nums) => {
-  let ans = false;
   nums.sort();
   for (let i = 1; i < nums.length; i++) {
     if (nums[i] === nums[i - 1]) {
-      ans = true;
-      break;
+      return true;
     }
   }
-  return ans;
+  return false;
 };
 
 // Second Answer
@@ -27,6 +25,7 @@ const containsDuplicate = (nums) => {
   return typeof ans === "number" ? false : ans;
 };
 
+// reduce
 const containsDuplicate = (nums) => {
   let ans = false;
   nums.length > 1 &&
@@ -42,9 +41,9 @@ const containsDuplicate = (nums) => {
 // Map
 const containsDuplicate = (nums) => {
   const map = new Map();
-  for (const v of nums) {
-    if (map.has(v)) return true;
-    map.set(v);
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(nums[i])) return true;
+    map.set(nums[i]);
   }
   return false;
 };

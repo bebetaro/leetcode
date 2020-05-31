@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-//  Brute force　=> Runtime Error
+// //  Brute force　=> Runtime Error
 // const maxProfit = (prices) => {
 //   const calculate = (prices, s) => {
 //     if (s >= prices.length) {
