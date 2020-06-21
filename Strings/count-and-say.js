@@ -16,15 +16,14 @@ var countAndSay = function (n) {
  * @return {string}
  */
 const generateString = (num) => {
-  const arr = num.split("");
   let ans = "";
-  let temp = arr[0];
-  for (let index = 1; index < arr.length; index++) {
-    if (arr[index] !== arr[index - 1]) {
-      ans += `${temp.length}${arr[index - 1]}`;
-      temp = arr[index];
+  let temp = num[0];
+  for (let index = 1; index < num.length; index++) {
+    if (num[index] !== num[index - 1]) {
+      ans += `${temp.length}${num[index - 1]}`;
+      temp = num[index];
     } else {
-      temp += arr[index];
+      temp += num[index];
     }
   }
   ans += `${temp.length}${temp[0]}`;

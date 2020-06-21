@@ -6,23 +6,23 @@ var longestCommonPrefix = function (strs) {
   if (strs.length === 0) {
     return "";
   }
-  const sample = strs[0].split("");
-  const ans = [];
-  for (let index = 0; index < sample.length; index++) {
+  const target = strs[0];
+  let ans = "";
+  for (let index = 0; index < target.length; index++) {
     let len = 0;
     for (let j = 1; j < strs.length; j++) {
-      if (sample[index] === strs[j][index]) {
+      if (target[index] === strs[j][index]) {
         len++;
       }
     }
     if (len === strs.length - 1) {
-      ans.push(sample[index]);
+      ans += target[index];
     } else {
       break;
     }
   }
 
-  return ans.join("");
+  return ans;
 };
 
 // Divide and Conquer
@@ -82,6 +82,7 @@ const longestCommonPrefix = (strs) => {
   if (strs.length === 0) return "";
   let minLen = Number.MAX_SAFE_INTEGER;
   for (let index = 0; index < strs.length; index++) {
+    // strsの中で最も短い文字列の長さを入れている
     minLen = Math.min(minLen, strs[index].length);
   }
   let low = 1;
