@@ -26,13 +26,15 @@ var removeNthFromEnd = function (head, n) {
  */
 
 const removeNode = (head, n) => {
-  if (n === 1 && head.next.next) {
+  if (n === 1 && head.next.next === null) {
     head.next = null;
     return;
   }
   if (findNode(head, n - 1)) {
-    head.val = head.next.val;
-    head.next = head.next.next;
+    if (head.next) {
+      head.val = head.next.val;
+      head.next = head.next.next;
+    }
     return;
   }
   return removeNode(head.next, n);
