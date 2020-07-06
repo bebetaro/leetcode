@@ -19,12 +19,41 @@ var hasCycle = function (head) {
     if (head.next === null) {
       return false;
     }
-    const node = `{${head.val}:${head.next.val}}`;
-    if (map.has(node)) {
+    if (map.has(head)) {
       return true;
     }
 
-    map.set(node);
+    map.set(head);
     head = head.next;
   }
+};
+
+// Two Pointer
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function (head) {
+  if (head == null || head.next === null) return false;
+  let slow = head;
+  let fast = head.next;
+
+  while (slow != fast) {
+    if (fast == null || fast.next === null) {
+      return false;
+    }
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+
+  return true;
 };
