@@ -21,17 +21,24 @@ const mergeArray = (arr1: number[][], arr2: number[][]) => {
   return long;
 };
 
-const collectAllNode = (root: TreeNode | null): number[][] => {
+const levelOrder = (root: TreeNode | null): number[][] => {
   if (root === null) {
-    return [[]];
+    return [];
   }
-  if (root.left === null && root.right === null) {
-    return [[root.val]];
+  const ans: number[][] = [];
+  traverseBTS(root, ans, 0);
+  return ans;
+};
+
+const traverseBTS = (root: TreeNode | null, arr: number[][], depth: number) => {
+  if (root === null) {
+    return;
+  } else {
+    if (arr[depth] === undefined) {
+      arr.push([]);
+    }
+    arr[depth].push(root.val);
   }
-  const left = collectAllNode(root.left);
-  const right = collectAllNode(root.right);
-
-  const merge = mergeArray(left, right);
-
-  return merge;
+  traverseBTS(root.left, arr, depth + 1);
+  traverseBTS(root.right, arr, depth + 1);
 };
